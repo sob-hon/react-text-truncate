@@ -40,3 +40,5 @@ npm run example:build
 - Make compatibility decisions through feature detection rather than user-agent sniffing.
 
 By contributing, you agree that your contribution is licensed under the MIT License.
+
+Maintainers should follow [RELEASING.md](RELEASING.md) for the npm release process.

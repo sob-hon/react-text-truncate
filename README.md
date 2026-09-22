@@ -7,7 +7,7 @@ It prefers native CSS ellipsis and line clamping, measures the DOM only when a f
 [![CI](https://github.com/sob-hon/react-text-truncate/actions/workflows/ci.yml/badge.svg)](https://github.com/sob-hon/react-text-truncate/actions/workflows/ci.yml)
 [![MIT license](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 
-![Examples of single-line, multiline, RTL, flex-layout, and custom-ellipsis truncation](https://raw.githubusercontent.com/sob-hon/react-text-truncate/main/docs/showcase.png)
+![English and Persian examples of single-line, multiline, flex-layout, and custom-ellipsis truncation](https://raw.githubusercontent.com/sob-hon/react-text-truncate/main/docs/showcase.png)
 
 ## Why this package?
 
@@ -33,27 +33,47 @@ React 17, 18, or 19 must already be installed in your application.
 ```tsx
 import Truncate from 'react-text-truncate-lite';
 
-export function ProductTitle({ title }: { title: string }) {
-  return <Truncate lines={2}>{title}</Truncate>;
+export function ProductTitles() {
+  return (
+    <div>
+      <Truncate lines={2} lang="en">
+        A long English product title
+      </Truncate>
+      <Truncate lines={2} dir="rtl" lang="fa">
+        یک عنوان طولانی فارسی برای محصول
+      </Truncate>
+    </div>
+  );
 }
 ```
 
 The component renders a `span` by default. Give it a constrained width—directly or through layout—so the browser knows where the text must stop.
 
 ```tsx
-<Truncate style={{ maxWidth: 280 }}>
-  A long product title that should remain on one line
-</Truncate>
+<div style={{ maxWidth: 280 }}>
+  <Truncate>A long product title that should remain on one line</Truncate>
+  <Truncate dir="rtl" lang="fa">
+    یک عنوان طولانی فارسی که باید در یک خط باقی بماند
+  </Truncate>
+</div>
 ```
 
 ## Common scenarios
 
+Every pattern below includes English and Persian so the LTR and RTL behavior is explicit.
+
 ### Multiline text
 
 ```tsx
-<Truncate as="p" lines={3} className="description">
-  {description}
-</Truncate>
+<div>
+  <Truncate as="p" lines={3} className="description">
+    A long English description for a product or merchant.
+  </Truncate>
+
+  <Truncate as="p" lines={3} className="description" dir="rtl" lang="fa">
+    یک توضیح طولانی فارسی برای محصول یا فروشگاه.
+  </Truncate>
+</div>
 ```
 
 ```css
@@ -70,11 +90,20 @@ An explicit `line-height` is recommended when the measurement fallback may run. 
 This is the most common source of “ellipsis is not working” reports. Flex items default to `min-width: auto`, which can prevent them from becoming narrower than their text.
 
 ```tsx
-<div className="row">
-  <div className="textColumn">
-    <Truncate className="title">{merchantName}</Truncate>
+<div>
+  <div className="row">
+    <div className="textColumn">
+      <Truncate className="title">A long English merchant name</Truncate>
+    </div>
+    <span className="badge">20% off</span>
   </div>
-  <span className="badge">20% off</span>
+
+  <div className="row" dir="rtl" lang="fa">
+    <div className="textColumn">
+      <Truncate className="title">یک نام طولانی برای فروشگاه</Truncate>
+    </div>
+    <span className="badge">۲۰٪ تخفیف</span>
+  </div>
 </div>
 ```
 
@@ -104,13 +133,21 @@ Use `min-width: 0` on every shrinking flex ancestor between the available-width 
 Clamping limits visible lines, but a short title still occupies fewer lines. Reserve the full title area when cards must align:
 
 ```tsx
-<Truncate
-  lines={2}
-  className="cardTitle"
-  style={{ height: '2.5rem' }}
->
-  {productName}
-</Truncate>
+<div>
+  <Truncate lines={2} className="cardTitle" style={{ height: '2.5rem' }}>
+    A long English product title
+  </Truncate>
+
+  <Truncate
+    lines={2}
+    className="cardTitle"
+    style={{ height: '2.5rem' }}
+    dir="rtl"
+    lang="fa"
+  >
+    یک عنوان طولانی فارسی برای محصول
+  </Truncate>
+</div>
 ```
 
 ```css
@@ -124,19 +161,31 @@ The reserved height should equal `lines × line-height`.
 ### Custom “show more” content
 
 ```tsx
-<Truncate
-  lines={3}
-  ellipsis={
-    <>
-      {'… '}
+<div>
+  <Truncate
+    lines={3}
+    ellipsis={
       <button type="button" className="more" onClick={openDescription}>
-        Show more
+        … Show more
       </button>
-    </>
-  }
->
-  {description}
-</Truncate>
+    }
+  >
+    A long English description that needs an inline action.
+  </Truncate>
+
+  <Truncate
+    lines={3}
+    dir="rtl"
+    lang="fa"
+    ellipsis={
+      <button type="button" className="more" onClick={openDescription}>
+        … بیشتر
+      </button>
+    }
+  >
+    یک توضیح طولانی فارسی که به دکمه ادامه مطلب نیاز دارد.
+  </Truncate>
+</div>
 ```
 
 ```css
@@ -161,6 +210,12 @@ A custom `ellipsis` activates DOM measurement so the component reserves the exac
 <section dir="rtl" lang="fa">
   <Truncate lines={2} className="title">
     فروشگاه اینترنتی با یک عنوان طولانی برای نمایش رفتار برش متن
+  </Truncate>
+</section>
+
+<section dir="ltr" lang="en">
+  <Truncate lines={2} className="title">
+    An online store with a long title that demonstrates text truncation
   </Truncate>
 </section>
 ```

@@ -11,7 +11,7 @@
 
 body {
   width: 1200px;
-  min-height: 760px;
+  min-height: 720px;
   margin: 0;
   background:
     radial-gradient(circle at 85% 5%, #dbeafe 0, transparent 28%),
@@ -63,12 +63,31 @@ header p {
   box-shadow: 0 12px 30px rgba(15, 23, 42, 0.06);
 }
 
-.wide {
-  grid-column: 1 / -1;
+.languageRow {
+  display: flex;
+  min-width: 0;
+  align-items: center;
+  gap: 10px;
+  margin-top: 14px;
+}
+
+.alignStart {
+  align-items: flex-start;
+}
+
+.languageLabel {
+  flex: 0 0 28px;
+  padding-top: 4px;
+  color: #94a3b8;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
 }
 
 .sample {
-  margin: 14px 0 18px;
+  flex: 1;
+  min-width: 0;
+  margin: 0;
   color: #0f172a;
   font-size: 18px;
   font-weight: 650;
@@ -80,10 +99,11 @@ header p {
 }
 
 .customSample {
-  max-width: 660px;
+  max-width: 430px;
 }
 
 .row {
+  flex: 1;
   display: flex;
   min-width: 0;
   align-items: center;
