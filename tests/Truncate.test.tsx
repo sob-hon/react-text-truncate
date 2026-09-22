@@ -30,6 +30,18 @@ describe('Truncate', () => {
     expect(element).toHaveClass('summary');
   });
 
+  it('inherits writing direction and allows an explicit RTL direction', () => {
+    render(
+      <Truncate dir="rtl" lang="fa" data-testid="truncate">
+        فروشگاه اینترنتی با یک نام طولانی
+      </Truncate>,
+    );
+
+    const element = screen.getByTestId('truncate');
+    expect(element).toHaveAttribute('dir', 'rtl');
+    expect(element).toHaveAttribute('lang', 'fa');
+  });
+
   it('applies multi-line CSS clamping', () => {
     render(
       <Truncate lines={3} data-testid="truncate">

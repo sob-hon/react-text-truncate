@@ -4,13 +4,27 @@ export type TruncateElement = 'span' | 'p' | 'div';
 
 export interface TruncateProps
   extends Omit<HTMLAttributes<HTMLElement>, 'children'> {
-  /** The HTML element rendered by the component. */
+  /**
+   * The semantic HTML element rendered for the text container.
+   * @default 'span'
+   */
   as?: TruncateElement;
-  /** Plain text to truncate. */
+  /**
+   * Plain text to display. React elements are intentionally not accepted because
+   * the measurement fallback truncates the underlying string safely.
+   */
   children: string;
-  /** Maximum number of visible lines. Invalid values fall back to one line. */
+  /**
+   * Maximum number of visible lines. Non-positive and fractional values fall
+   * back to one line.
+   * @default 1
+   */
   lines?: number;
-  /** Content appended only when JavaScript truncation is required. */
+  /**
+   * Custom content rendered at the truncation point. Supplying this enables the
+   * DOM-measurement path so enough space is reserved for the custom content.
+   * Omit it to use the browser's native ellipsis whenever possible.
+   */
   ellipsis?: ReactNode;
 }
 

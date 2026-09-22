@@ -1,9 +1,9 @@
 {
-  "name": "@sob-hon/react-text-truncate",
+  "name": "react-text-truncate-lite",
   "version": "0.1.0",
-  "description": "A lightweight, responsive text truncation component for React.",
-  "license": "UNLICENSED",
-  "author": "sob-hon",
+  "description": "Lightweight, responsive React text truncation with multiline clamping, custom ellipses, RTL support, and graceful browser fallbacks.",
+  "license": "MIT",
+  "author": "Sobhan Yazdanjoo",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/sob-hon/react-text-truncate.git"
@@ -12,6 +12,17 @@
   "bugs": {
     "url": "https://github.com/sob-hon/react-text-truncate/issues"
   },
+  "keywords": [
+    "react",
+    "truncate",
+    "text",
+    "ellipsis",
+    "line-clamp",
+    "multiline",
+    "rtl",
+    "responsive",
+    "typescript"
+  ],
   "type": "module",
   "main": "./dist/index.cjs",
   "module": "./dist/index.js",
@@ -29,11 +40,14 @@
   ],
   "sideEffects": false,
   "publishConfig": {
-    "registry": "https://npm.pkg.github.com"
+    "access": "public",
+    "provenance": true,
+    "registry": "https://registry.npmjs.org/"
   },
   "scripts": {
     "build": "tsup",
     "dev": "tsup --watch",
+    "example:build": "esbuild examples/showcase.tsx --bundle --format=esm --jsx=automatic --outfile=examples/dist/showcase.js",
     "test": "vitest run",
     "test:watch": "vitest",
     "typecheck": "tsc --noEmit",
@@ -45,7 +59,7 @@
     "react": ">=17.0.0 <20.0.0"
   },
   "overrides": {
-    "esbuild": "0.28.2"
+    "esbuild": "$esbuild"
   },
   "devDependencies": {
     "@eslint/js": "^9.39.5",
@@ -53,6 +67,7 @@
     "@testing-library/react": "^16.1.0",
     "@types/react": "^18.3.18",
     "@types/react-dom": "^18.3.5",
+    "esbuild": "0.28.2",
     "eslint": "^9.39.5",
     "eslint-plugin-react-hooks": "^5.1.0",
     "globals": "^15.14.0",
