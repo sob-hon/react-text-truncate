@@ -1,13 +1,13 @@
-# react-text-truncate-lite
+# react-smart-truncate
 
 A small, dependency-free React component for reliable single-line and multiline text truncation.
 
 It prefers native CSS ellipsis and line clamping, measures the DOM only when a fallback or custom ellipsis is needed, responds to container and font changes, and works naturally in both LTR and RTL layouts.
 
-[![CI](https://github.com/sob-hon/react-text-truncate/actions/workflows/ci.yml/badge.svg)](https://github.com/sob-hon/react-text-truncate/actions/workflows/ci.yml)
+[![CI](https://github.com/sob-hon/react-smart-truncate/actions/workflows/ci.yml/badge.svg)](https://github.com/sob-hon/react-smart-truncate/actions/workflows/ci.yml)
 [![MIT license](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 
-![English and Persian examples of single-line, multiline, flex-layout, and custom-ellipsis truncation](https://raw.githubusercontent.com/sob-hon/react-text-truncate/main/docs/showcase.png)
+![English and Persian examples of single-line, multiline, flex-layout, and custom-ellipsis truncation](https://raw.githubusercontent.com/sob-hon/react-smart-truncate/main/docs/showcase.png)
 
 ## Why this package?
 
@@ -23,7 +23,7 @@ It prefers native CSS ellipsis and line clamping, measures the DOM only when a f
 ## Installation
 
 ```sh
-npm install react-text-truncate-lite
+npm install react-smart-truncate
 ```
 
 React 17, 18, or 19 must already be installed in your application.
@@ -31,7 +31,7 @@ React 17, 18, or 19 must already be installed in your application.
 ## Quick start
 
 ```tsx
-import Truncate from 'react-text-truncate-lite';
+import Truncate from 'react-smart-truncate';
 
 export function ProductTitles() {
   return (

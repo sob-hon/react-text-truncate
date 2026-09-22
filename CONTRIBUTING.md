@@ -1,6 +1,6 @@
 # Contributing
 
-Thanks for helping improve `react-text-truncate-lite`.
+Thanks for helping improve `react-smart-truncate`.
 
 ## Before opening an issue
 

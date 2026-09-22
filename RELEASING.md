@@ -21,7 +21,7 @@ After the first release, configure npm Trusted Publishing for:
 
 - provider: GitHub Actions;
 - GitHub user: `sob-hon`;
-- repository: `react-text-truncate`;
+- repository: `react-smart-truncate`;
 - workflow: `publish.yml`;
 - allowed action: `npm publish`.
 

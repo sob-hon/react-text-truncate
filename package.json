@@ -1,16 +1,16 @@
 {
-  "name": "react-text-truncate-lite",
+  "name": "react-smart-truncate",
   "version": "0.1.0",
   "description": "Lightweight, responsive React text truncation with multiline clamping, custom ellipses, RTL support, and graceful browser fallbacks.",
   "license": "MIT",
   "author": "Sobhan Yazdanjoo",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/sob-hon/react-text-truncate.git"
+    "url": "git+https://github.com/sob-hon/react-smart-truncate.git"
   },
-  "homepage": "https://github.com/sob-hon/react-text-truncate#readme",
+  "homepage": "https://github.com/sob-hon/react-smart-truncate#readme",
   "bugs": {
-    "url": "https://github.com/sob-hon/react-text-truncate/issues"
+    "url": "https://github.com/sob-hon/react-smart-truncate/issues"
   },
   "keywords": [
     "react",
